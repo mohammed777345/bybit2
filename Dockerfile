@@ -1,12 +1,6 @@
-FROM python:3
+FROM golang 
 
 WORKDIR /usr/src/app
-COPY ./app/telegram.py ./
-COPY ./config/* ./config/
+COPY ./app ./
 
-RUN pip3.10  install python-dotenv
-RUN pip3.10  install Telethon
-
-WORKDIR /usr/src/app/config
-
-CMD [ "python3.10", "../telegram.py" ]
+CMD ["make"]
